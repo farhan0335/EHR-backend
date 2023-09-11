@@ -1,8 +1,7 @@
-import { Body, Controller, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/creat-user.dto';
 import { UserUpdateDto } from './dto/update.user.dto';
-import { IsActiveMiddleware } from './isActive.middleware';
 
 @Controller('user')
 export class UserController {
@@ -15,10 +14,11 @@ export class UserController {
         return this.userservice.create(createUserDto);
     }
       @Patch(':id')
-      @UseGuards(IsActiveMiddleware)
   async update(@Param('id') userId: number, @Body() updateUserDto: UserUpdateDto) {
     return this.userservice.update(userId, updateUserDto);
   }
-  
-
-}
+  @Patch(':id')
+  @UseGuards(AuthGuard('jwt')) // Apply your authentication guard first
+  @UseGuards(IsActiveMiddleware) // Then apply IsActiveMiddleware
+  async update(@Param('id') userId: number, @Body() updateUserDto: UserUpdateDto) {
+    return this.userService.update(userId, updateUserDto);

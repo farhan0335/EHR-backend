@@ -18,7 +18,7 @@ import {
 
     @Column({ type : 'enum', enum : UserRole, default : UserRole.User })
     Role : UserRole;
-    @Column({default : false})
+    @Column({default : })
     isActive : boolean;
   
     @BeforeInsert()

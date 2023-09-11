@@ -4,7 +4,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { UserService } from './user.service';
 import { JwtService } from '@nestjs/jwt';
-import { IsActiveMiddleware } from './isActive.middleware';
 
 @Module({
   imports : [TypeOrmModule.forFeature([User])

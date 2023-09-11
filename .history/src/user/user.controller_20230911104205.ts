@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/creat-user.dto';
 import { UserUpdateDto } from './dto/update.user.dto';
@@ -15,7 +15,7 @@ export class UserController {
         return this.userservice.create(createUserDto);
     }
       @Patch(':id')
-      @UseGuards(IsActiveMiddleware)
+      @Use
   async update(@Param('id') userId: number, @Body() updateUserDto: UserUpdateDto) {
     return this.userservice.update(userId, updateUserDto);
   }

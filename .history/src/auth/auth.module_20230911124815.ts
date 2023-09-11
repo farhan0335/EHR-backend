@@ -18,7 +18,7 @@ import { RoleGuard } from './role.guard';
     TypeOrmModule.forFeature([User]),
     UserModule,
     PassportModule,
-    
+    mo
     
     JwtModule.registerAsync({
       imports : [ConfigModule],

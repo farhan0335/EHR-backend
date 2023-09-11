@@ -18,8 +18,8 @@ import {
 
     @Column({ type : 'enum', enum : UserRole, default : UserRole.User })
     Role : UserRole;
-    @Column({default : false})
-    isActive : boolean;
+    @Column({default : true})
+    isActive : true
   
     @BeforeInsert()
     async hashPassword(){

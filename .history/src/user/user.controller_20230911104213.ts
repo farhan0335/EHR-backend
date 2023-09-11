@@ -15,7 +15,7 @@ export class UserController {
         return this.userservice.create(createUserDto);
     }
       @Patch(':id')
-      @UseGuards(IsActiveMiddleware)
+      @UseGuards
   async update(@Param('id') userId: number, @Body() updateUserDto: UserUpdateDto) {
     return this.userservice.update(userId, updateUserDto);
   }
