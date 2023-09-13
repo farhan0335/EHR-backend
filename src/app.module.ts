@@ -10,6 +10,7 @@ import { PassportModule } from '@nestjs/passport';
 import { IntegrationModule } from './integration/integration.module';
 import { FileModule } from './fileUpload/file.module';
 import { Files } from './fileUpload/entity/file.entity';
+import { BlockchainModule } from './blockchain/blockchain.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { Files } from './fileUpload/entity/file.entity';
     UserModule,
     AuthModule,
     PassportModule,
-    IntegrationModule
+    IntegrationModule,
+    BlockchainModule
   ],
   controllers: [AppController],  
   providers: [AppService],

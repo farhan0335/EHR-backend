@@ -7,12 +7,13 @@ import { UserModule } from 'src/user/user.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/user/entities/user.entity';
+import { BlockchainModule } from 'src/blockchain/blockchain.module';
 @Module({
-  imports : [TypeOrmModule.forFeature([User], 
-    ),
-UserModule,
-AuthModule],
+  imports: [TypeOrmModule.forFeature([User]
+  ), BlockchainModule,
+    UserModule,
+    AuthModule],
   providers: [IntegrationService, UserService, JwtService],
   controllers: [IntegrationController]
 })
-export class IntegrationModule {}
+export class IntegrationModule { }
